@@ -40,7 +40,7 @@
                                     <constraint firstItem="erz-Jo-bTS" firstAttribute="height" secondItem="uGV-lH-pTr" secondAttribute="height" id="iBn-Xd-Due"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7m1-o0-jNl">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7m1-o0-jNl">
                                 <rect key="frame" x="-2" y="478" width="377" height="189"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="20" id="Dz1-gV-i0O">
@@ -88,14 +88,14 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="uGV-lH-pTr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="71X-l3-uzb"/>
-                            <constraint firstItem="u2o-td-B9C" firstAttribute="top" secondItem="7m1-o0-jNl" secondAttribute="top" id="77C-QY-qbY"/>
+                            <constraint firstItem="u2o-td-B9C" firstAttribute="top" secondItem="7m1-o0-jNl" secondAttribute="top" constant="-7" id="77C-QY-qbY"/>
                             <constraint firstItem="u2o-td-B9C" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PMF-Lb-FEs"/>
-                            <constraint firstItem="7m1-o0-jNl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="WCX-Dw-CeK"/>
+                            <constraint firstItem="7m1-o0-jNl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="2" id="WCX-Dw-CeK"/>
                             <constraint firstItem="uGV-lH-pTr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bb6-X3-KRs"/>
-                            <constraint firstItem="7m1-o0-jNl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dbX-gY-xJc"/>
+                            <constraint firstItem="7m1-o0-jNl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-1" id="dbX-gY-xJc"/>
                             <constraint firstItem="uGV-lH-pTr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="dgz-nT-Jxe"/>
                             <constraint firstItem="uGV-lH-pTr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h3b-VX-q37"/>
-                            <constraint firstItem="7m1-o0-jNl" firstAttribute="centerY" secondItem="uGV-lH-pTr" secondAttribute="centerY" multiplier="1.54" id="pdn-bT-LwA"/>
+                            <constraint firstItem="7m1-o0-jNl" firstAttribute="centerY" secondItem="uGV-lH-pTr" secondAttribute="centerY" multiplier="1.54" constant="3.4700000000000273" id="pdn-bT-LwA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7m1-o0-jNl" secondAttribute="bottom" id="ykA-jU-ZRF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -110,6 +110,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
+        </scene>
+        <!--Album Collection View Controller-->
+        <scene sceneID="3Wq-oi-XF5">
+            <objects>
+                <viewController storyboardIdentifier="AlbumCollection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FIL-d0-fgh" customClass="AlbumCollectionViewController" customModule="CoreCamera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2OT-7V-phc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="acZ-b6-bJB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wg-O1-T0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
