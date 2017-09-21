@@ -6,7 +6,6 @@
 //  Copyright © 2017 Christopher Webb-Orenstein. All rights reserved.
 //
 
-import Foundation
 import AVFoundation
 import CoreImage
 import UIKit
@@ -111,18 +110,25 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
-        let image = CIImage(cvImageBuffer: imageBuffer)
+        let cIimage = CIImage(cvImageBuffer: imageBuffer)
         
         if !filtering {
-            let filteredImage = UIImage(ciImage: image)
+            let filteredImage = UIImage(ciImage: cIimage)
             DispatchQueue.main.async { [weak self] in
                 if let strongSelf = self {
                     strongSelf.delegate?.update(image: filteredImage)
                 }
             }
         } else {
-            currentFilter.setValue(image, forKey: kCIInputImageKey)
-            if let outputImg = currentFilter.value(forKey: kCIOutputImageKey) as? CIImage {
+            currentFilter.setValue(cIimage, forKey: kCIInputImageKey)
+            if let outImage = currentFilter.outputImage {
+                let filteredImage = UIImage(ciImage: outImage)
+                DispatchQueue.main.async { [weak self] in
+                    if let strongSelf = self {
+                        strongSelf.delegate?.update(image: filteredImage)
+                    }
+                }
+            } else if let outputImg = currentFilter.value(forKey: kCIOutputImageKey) as? CIImage {
                 let filteredImage = UIImage(ciImage: outputImg)
                 DispatchQueue.main.async { [weak self] in
                     if let strongSelf = self {

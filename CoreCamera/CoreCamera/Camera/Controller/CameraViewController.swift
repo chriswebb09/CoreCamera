@@ -185,8 +185,11 @@ extension CameraViewController: BottomMenuViewable, MenuDelegate  {
     func optionFour(tapped: Bool) {
         print("option four")
         filterButton.tintColor = .white
-        camera.currentFilter = CIFilter(name: "CICMYKHalftone")!
-        camera.currentFilter.setValue(25, forKey: kCIInputWidthKey)
+        //let filter =
+        let filter = CIFilter(name: "CIVortexDistortion", withInputParameters:[kCIInputAngleKey: 200])
+          //  vortexCI(angle: 200)
+            //sepia() • blur(radius: 4.0) •
+        camera.currentFilter = filter
         hidePopMenu(cameraView)
         photoButtonEnabled = true
         filtering = true

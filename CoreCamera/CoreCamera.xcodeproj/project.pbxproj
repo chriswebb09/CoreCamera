@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A719EF741F72203D0009951A /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A719EF731F72203D0009951A /* ImageCell.swift */; };
+		A72348521F73641800101EED /* CameraControllerDatsource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72348511F73641800101EED /* CameraControllerDatsource.swift */; };
 		A75425B01F72B3650079ABED /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75425AF1F72B3650079ABED /* Camera.swift */; };
 		A7CA74341F72445000AB7827 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA74331F72445000AB7827 /* CALayer+Extension.swift */; };
 		A7CA74391F7254CF00AB7827 /* MenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA74351F7254CF00AB7827 /* MenuOptionView.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		A719EF731F72203D0009951A /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		A72348511F73641800101EED /* CameraControllerDatsource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraControllerDatsource.swift; path = CoreCamera/Camera/Data/CameraControllerDatsource.swift; sourceTree = SOURCE_ROOT; };
 		A75425AF1F72B3650079ABED /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A7CA74331F72445000AB7827 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		A7CA74351F7254CF00AB7827 /* MenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A723484A1F73637800101EED /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A7CA74381F7254CF00AB7827 /* BottomMenu.swift */,
+				A7CA74361F7254CF00AB7827 /* MenuDelegate.swift */,
+				A7CA74351F7254CF00AB7827 /* MenuOptionView.swift */,
+				A7CA74371F7254CF00AB7827 /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		A723484B1F73638B00101EED /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A723484F1F7363B800101EED /* Data */,
+				A723484E1F7363B200101EED /* Controller */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		A723484C1F73639800101EED /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A7CA74331F72445000AB7827 /* CALayer+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A723484D1F7363A000101EED /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				A719EF731F72203D0009951A /* ImageCell.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		A723484E1F7363B200101EED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A7FD074A1F71ED9000BF9FC5 /* CameraViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A723484F1F7363B800101EED /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A75425AF1F72B3650079ABED /* Camera.swift */,
+				A72348511F73641800101EED /* CameraControllerDatsource.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A72348501F7363C900101EED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A7FD074C1F71ED9000BF9FC5 /* Main.storyboard */,
+				A7FD074F1F71ED9000BF9FC5 /* Assets.xcassets */,
+				A7FD07511F71ED9000BF9FC5 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A7FD073C1F71ED9000BF9FC5 = {
 			isa = PBXGroup;
 			children = (
@@ -92,18 +157,12 @@
 			isa = PBXGroup;
 			children = (
 				A7FD07481F71ED9000BF9FC5 /* AppDelegate.swift */,
-				A75425AF1F72B3650079ABED /* Camera.swift */,
-				A7FD074A1F71ED9000BF9FC5 /* CameraViewController.swift */,
-				A7FD074C1F71ED9000BF9FC5 /* Main.storyboard */,
-				A7FD074F1F71ED9000BF9FC5 /* Assets.xcassets */,
-				A7FD07511F71ED9000BF9FC5 /* LaunchScreen.storyboard */,
 				A7FD07541F71ED9000BF9FC5 /* Info.plist */,
-				A719EF731F72203D0009951A /* ImageCell.swift */,
-				A7CA74331F72445000AB7827 /* CALayer+Extension.swift */,
-				A7CA74381F7254CF00AB7827 /* BottomMenu.swift */,
-				A7CA74361F7254CF00AB7827 /* MenuDelegate.swift */,
-				A7CA74351F7254CF00AB7827 /* MenuOptionView.swift */,
-				A7CA74371F7254CF00AB7827 /* MenuView.swift */,
+				A723484B1F73638B00101EED /* Camera */,
+				A72348501F7363C900101EED /* Resources */,
+				A723484D1F7363A000101EED /* UIElements */,
+				A723484C1F73639800101EED /* Extension */,
+				A723484A1F73637800101EED /* Menu */,
 			);
 			path = CoreCamera;
 			sourceTree = "<group>";
@@ -229,6 +288,7 @@
 				A7CA74341F72445000AB7827 /* CALayer+Extension.swift in Sources */,
 				A7CA743A1F7254CF00AB7827 /* MenuDelegate.swift in Sources */,
 				A75425B01F72B3650079ABED /* Camera.swift in Sources */,
+				A72348521F73641800101EED /* CameraControllerDatsource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
