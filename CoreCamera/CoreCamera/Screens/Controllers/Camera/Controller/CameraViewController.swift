@@ -56,6 +56,7 @@ class CameraViewController: UIViewController, Controller {
             if filtering {
                 let image = #imageLiteral(resourceName: "lightning-full-small").withRenderingMode(.alwaysTemplate)
                 filterButton.setImage(image, for: .normal)
+                
             } else if !filtering {
                 let image = #imageLiteral(resourceName: "lightning-small").withRenderingMode(.alwaysTemplate)
                 filterButton.setImage(image, for: .normal)
@@ -64,14 +65,18 @@ class CameraViewController: UIViewController, Controller {
     }
     
     // MARK: - View Lifecycle
-    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        filterButton.tintColor = .white
         camera = Camera()
         camera.delegate = self
         setupButton()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func setup() {
@@ -81,6 +86,7 @@ class CameraViewController: UIViewController, Controller {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         previewLayer?.bounds = cameraView.frame
+        filterButton.tintColor = .white
     }
     
     // MARK: - Rotation
@@ -105,13 +111,30 @@ class CameraViewController: UIViewController, Controller {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if photoButtonEnabled {
-            addAnimations()
             let touch: UITouch = touches.first! as UITouch
-            let touchLocation = touch.location(in: self.view)
-            if buttonLayer.frame.contains(touchLocation) {
+            let touchLocation = touch.location(in: self.cameraView)
+            let buttonLayerFrame = buttonLayer.frame
+            if buttonLayerFrame.contains(touchLocation) {
+                addAnimations()
                 takePhoto(tapped: true)
             }
+        } else {
+            print("enable photo")
         }
+    }
+    
+    private func setupButtonLayer() {
+        buttonLayer.opacity = 1
+        buttonLayer.cornerRadius = buttonLayer.frame.width / 2
+        buttonLayer.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 1.8)
+        buttonLayer.borderWidth = 4.0
+        buttonLayer.borderColor = UIColor.white.cgColor
+        buttonLayer.shadowOpacity = 0.2
+        buttonLayer.shadowOffset = CGSize(width: 0, height: 3)
+        buttonLayer.shadowRadius = 3.0
+        let image = #imageLiteral(resourceName: "lightning-small").withRenderingMode(.alwaysTemplate)
+        filterButton.setImage(image, for: .normal)
+        filterButton.tintColor = .white
     }
     
     private func addAnimations() {
@@ -147,7 +170,7 @@ class CameraViewController: UIViewController, Controller {
     
     private func displayRect(rect: CGRect) {
         buttonLayer.frame = rect
-        buttonLayer.setupButton()
+        setupButtonLayer()
     }
 }
 
@@ -190,9 +213,8 @@ extension CameraViewController: BottomMenuViewable, MenuDelegate  {
     
     func optionFour(tapped: Bool) {
         print("option four")
-        filterButton.tintColor = .white
-        let filter = CIFilter(name: "CIVortexDistortion", withInputParameters:[kCIInputAngleKey: 200])
-        camera.currentFilter = filter
+        filterButton.tintColor = .blue
+        camera.currentFilter = glassDistortionFilter
         hidePopMenu(cameraView)
         photoButtonEnabled = true
         filtering = true

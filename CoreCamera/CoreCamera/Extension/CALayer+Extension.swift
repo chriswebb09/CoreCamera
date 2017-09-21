@@ -19,7 +19,7 @@ extension CALayer {
     func setupButton() {
         opacity = 1
         cornerRadius = frame.width / 2
-        position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 1.8)
+        position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
         borderWidth = 4.0
         borderColor = UIColor.white.cgColor
         shadowOpacity = 0.2

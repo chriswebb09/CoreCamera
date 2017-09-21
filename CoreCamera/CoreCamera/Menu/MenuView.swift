@@ -61,7 +61,6 @@ final class MenuView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         isUserInteractionEnabled = true
-        // layer.cornerRadius = 6
     }
     
     private func addSelectors() {
@@ -78,54 +77,25 @@ final class MenuView: UIView {
     }
     
     @objc private func optionOneViewTapped() {
-        animateTap(view: optionOneView)
-        optionOneView.layer.borderWidth = 6
         delegate?.optionOne(tapped: true)
-        optionOneView.layer.borderWidth = MenuViewConstants.optionBorderWidth
     }
     
     @objc private func optionTwoViewTapped() {
-        animateTap(view: optionTwoView)
-        optionTwoView.layer.borderWidth = 6
         delegate?.optionTwo(tapped: true)
-        optionTwoView.layer.borderWidth = MenuViewConstants.optionBorderWidth
     }
     
     @objc private func optionThreeViewTapped() {
-        animateTap(view: optionThreeView)
-        optionThreeView.layer.borderWidth = 6
         delegate?.optionThree(tapped: true)
-        optionThreeView.layer.borderWidth = MenuViewConstants.optionBorderWidth
     }
     
     @objc private func optionFourViewTapped() {
         print("cancelViewTapped() ")
-        animateTap(view: optionFourView)
-        optionCancelView.layer.borderWidth = 6
         delegate?.optionFour(tapped: true)
-        optionFourView.layer.borderWidth = MenuViewConstants.optionBorderWidth
     }
     
     @objc private func cancelViewTapped() {
         print("cancelViewTapped() ")
-        animateTap(view: optionCancelView)
-        optionCancelView.layer.borderWidth = 6
         delegate?.cancel(tapped: true)
-        optionCancelView.layer.borderWidth = MenuViewConstants.optionBorderWidth
-    }
-    
-    func animateTap(view: UIView) {
-        let colorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        colorAnimation.fromValue = view.backgroundColor
-        colorAnimation.toValue = UIColor.lightGray.cgColor
-        colorAnimation.duration = 0.5
-        view.layer.add(colorAnimation, forKey: "colorAnimation")
-        colorAnimation.autoreverses = true
-        CATransaction.begin()
-        colorAnimation.isRemovedOnCompletion = true
-        colorAnimation.fillMode = kCAFillModeForwards
-        view.layer.backgroundColor = UIColor.lightGray.cgColor
-        CATransaction.commit()
     }
     
     func configureView() {
