@@ -11,7 +11,9 @@ import AVFoundation
 import CoreImage
 import GLKit
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, Controller {
+    var type: ControllerType = .camera
+    
     
     // MARK: - Properties
     
@@ -62,7 +64,7 @@ class CameraViewController: UIViewController {
     }
     
     // MARK: - View Lifecycle
-    
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -70,6 +72,10 @@ class CameraViewController: UIViewController {
         camera = Camera()
         camera.delegate = self
         setupButton()
+    }
+    
+    func setup() {
+        print("setup")
     }
     
     override func viewDidLayoutSubviews() {
@@ -185,10 +191,7 @@ extension CameraViewController: BottomMenuViewable, MenuDelegate  {
     func optionFour(tapped: Bool) {
         print("option four")
         filterButton.tintColor = .white
-        //let filter =
         let filter = CIFilter(name: "CIVortexDistortion", withInputParameters:[kCIInputAngleKey: 200])
-          //  vortexCI(angle: 200)
-            //sepia() • blur(radius: 4.0) •
         camera.currentFilter = filter
         hidePopMenu(cameraView)
         photoButtonEnabled = true

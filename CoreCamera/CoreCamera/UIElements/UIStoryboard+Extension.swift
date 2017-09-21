@@ -14,7 +14,7 @@ extension UIStoryboard {
     // Enumeration of all storyboard names used in the app
     
     enum Storyboard: String {
-        case start, navigation
+        case camera, album
         // The name of the storyboard's file, returned with capitalization applied
         var filename: String {
             return rawValue.capitalized

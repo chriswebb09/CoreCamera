@@ -9,7 +9,7 @@
 import UIKit
 
 enum  ControllerType {
-    case nav, start, none
+    case camera, album, none
 }
 
 protocol Controller: class {

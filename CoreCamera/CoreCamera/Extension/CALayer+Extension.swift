@@ -26,9 +26,7 @@ extension CALayer {
         shadowOffset = CGSize(width: 0, height: 3)
         shadowRadius = 3.0
     }
-}
-
-extension CALayer {
+    
     func setCellShadow(contentView: UIView) {
         let shadowOffsetWidth: CGFloat = contentView.bounds.height * CALayerConstants.shadowWidthMultiplier
         let shadowOffsetHeight: CGFloat = contentView.bounds.width * CALayerConstants.shadowHeightMultiplier
@@ -43,19 +41,3 @@ struct CALayerConstants {
     static let shadowWidthMultiplier: CGFloat = 0.0000001
     static let shadowHeightMultiplier: CGFloat = 0.000001
 }
-
-
-protocol ErrorPresenting {
-    func presentError(title: String, message: String)
-}
-
-extension ErrorPresenting where Self: UIViewController {
-    func presentError(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(dismissAction)
-        present(alertController, animated: true)
-    }
-}
-
-

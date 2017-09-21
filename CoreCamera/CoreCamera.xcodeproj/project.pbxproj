@@ -15,6 +15,9 @@
 		A7CA2B591F7389FC006D2922 /* CoordinatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B581F7389FC006D2922 /* CoordinatorController.swift */; };
 		A7CA2B5C1F738A44006D2922 /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B5B1F738A44006D2922 /* StoryboardIdentifiable.swift */; };
 		A7CA2B5E1F738A80006D2922 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B5D1F738A80006D2922 /* UIStoryboard+Extension.swift */; };
+		A7CA2B601F738F79006D2922 /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B5F1F738F79006D2922 /* ErrorPresenting.swift */; };
+		A7CA2B631F739020006D2922 /* CameraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B621F739020006D2922 /* CameraCoordinator.swift */; };
+		A7CA2B661F73911B006D2922 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B651F73911B006D2922 /* MainCoordinator.swift */; };
 		A7CA74341F72445000AB7827 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA74331F72445000AB7827 /* CALayer+Extension.swift */; };
 		A7CA74391F7254CF00AB7827 /* MenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA74351F7254CF00AB7827 /* MenuOptionView.swift */; };
 		A7CA743A1F7254CF00AB7827 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA74361F7254CF00AB7827 /* MenuDelegate.swift */; };
@@ -22,7 +25,7 @@
 		A7CA743C1F7254CF00AB7827 /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA74381F7254CF00AB7827 /* BottomMenu.swift */; };
 		A7FD07491F71ED9000BF9FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FD07481F71ED9000BF9FC5 /* AppDelegate.swift */; };
 		A7FD074B1F71ED9000BF9FC5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FD074A1F71ED9000BF9FC5 /* CameraViewController.swift */; };
-		A7FD074E1F71ED9000BF9FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7FD074C1F71ED9000BF9FC5 /* Main.storyboard */; };
+		A7FD074E1F71ED9000BF9FC5 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7FD074C1F71ED9000BF9FC5 /* Camera.storyboard */; };
 		A7FD07501F71ED9000BF9FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7FD074F1F71ED9000BF9FC5 /* Assets.xcassets */; };
 		A7FD07531F71ED9000BF9FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7FD07511F71ED9000BF9FC5 /* LaunchScreen.storyboard */; };
 		A7FD075E1F71ED9000BF9FC5 /* CoreCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FD075D1F71ED9000BF9FC5 /* CoreCameraTests.swift */; };
@@ -47,6 +50,9 @@
 		A7CA2B581F7389FC006D2922 /* CoordinatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorController.swift; sourceTree = "<group>"; };
 		A7CA2B5B1F738A44006D2922 /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
 		A7CA2B5D1F738A80006D2922 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		A7CA2B5F1F738F79006D2922 /* ErrorPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
+		A7CA2B621F739020006D2922 /* CameraCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
+		A7CA2B651F73911B006D2922 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A7CA74331F72445000AB7827 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		A7CA74351F7254CF00AB7827 /* MenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionView.swift; sourceTree = "<group>"; };
 		A7CA74361F7254CF00AB7827 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +61,7 @@
 		A7FD07451F71ED9000BF9FC5 /* CoreCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FD07481F71ED9000BF9FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7FD074A1F71ED9000BF9FC5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		A7FD074D1F71ED9000BF9FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7FD074D1F71ED9000BF9FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
 		A7FD074F1F71ED9000BF9FC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7FD07521F71ED9000BF9FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7FD07541F71ED9000BF9FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,7 +144,7 @@
 		A72348501F7363C900101EED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A7FD074C1F71ED9000BF9FC5 /* Main.storyboard */,
+				A7FD074C1F71ED9000BF9FC5 /* Camera.storyboard */,
 				A7FD074F1F71ED9000BF9FC5 /* Assets.xcassets */,
 				A7FD07511F71ED9000BF9FC5 /* LaunchScreen.storyboard */,
 			);
@@ -156,8 +162,8 @@
 		A7CA2B531F7385A9006D2922 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A7CA2B521F738596006D2922 /* Album */,
-				A723484B1F73638B00101EED /* Camera */,
+				A7CA2B611F738FB7006D2922 /* Controllers */,
+				A7CA2B641F739042006D2922 /* Coordinators */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -169,8 +175,27 @@
 				A7CA2B561F7389DB006D2922 /* AppCoordinator.swift */,
 				A7CA2B581F7389FC006D2922 /* CoordinatorController.swift */,
 				A7CA2B5B1F738A44006D2922 /* StoryboardIdentifiable.swift */,
+				A7CA2B5F1F738F79006D2922 /* ErrorPresenting.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A7CA2B611F738FB7006D2922 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7CA2B521F738596006D2922 /* Album */,
+				A723484B1F73638B00101EED /* Camera */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A7CA2B641F739042006D2922 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A7CA2B621F739020006D2922 /* CameraCoordinator.swift */,
+				A7CA2B651F73911B006D2922 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		A7FD073C1F71ED9000BF9FC5 = {
@@ -300,7 +325,7 @@
 			files = (
 				A7FD07531F71ED9000BF9FC5 /* LaunchScreen.storyboard in Resources */,
 				A7FD07501F71ED9000BF9FC5 /* Assets.xcassets in Resources */,
-				A7FD074E1F71ED9000BF9FC5 /* Main.storyboard in Resources */,
+				A7FD074E1F71ED9000BF9FC5 /* Camera.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,12 +346,15 @@
 				A7CA2B5C1F738A44006D2922 /* StoryboardIdentifiable.swift in Sources */,
 				A7CA2B571F7389DB006D2922 /* AppCoordinator.swift in Sources */,
 				A7CA743B1F7254CF00AB7827 /* MenuView.swift in Sources */,
+				A7CA2B631F739020006D2922 /* CameraCoordinator.swift in Sources */,
 				A7CA2B591F7389FC006D2922 /* CoordinatorController.swift in Sources */,
 				A7FD074B1F71ED9000BF9FC5 /* CameraViewController.swift in Sources */,
 				A7FD07491F71ED9000BF9FC5 /* AppDelegate.swift in Sources */,
+				A7CA2B661F73911B006D2922 /* MainCoordinator.swift in Sources */,
 				A719EF741F72203D0009951A /* ImageCell.swift in Sources */,
 				A7CA74391F7254CF00AB7827 /* MenuOptionView.swift in Sources */,
 				A7CA743C1F7254CF00AB7827 /* BottomMenu.swift in Sources */,
+				A7CA2B601F738F79006D2922 /* ErrorPresenting.swift in Sources */,
 				A7CA74341F72445000AB7827 /* CALayer+Extension.swift in Sources */,
 				A7CA743A1F7254CF00AB7827 /* MenuDelegate.swift in Sources */,
 				A7CA2B551F7389B2006D2922 /* Coordinator.swift in Sources */,
@@ -355,12 +383,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A7FD074C1F71ED9000BF9FC5 /* Main.storyboard */ = {
+		A7FD074C1F71ED9000BF9FC5 /* Camera.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A7FD074D1F71ED9000BF9FC5 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Camera.storyboard;
 			sourceTree = "<group>";
 		};
 		A7FD07511F71ED9000BF9FC5 /* LaunchScreen.storyboard */ = {
