@@ -133,14 +133,14 @@ final class CameraViewController: UIViewController, Controller {
         view.layer.addSublayer(flash)
         flash.opacity = 0
         
-        let anim = CABasicAnimation(keyPath: "opacity")
-        anim.fromValue = 0
-        anim.toValue = 1
-        anim.duration = 0.1
-        anim.autoreverses = true
-        anim.isRemovedOnCompletion = true
-        anim.delegate = self
-        flash.add(anim, forKey: "flashAnimation")
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 0.1
+        animation.autoreverses = true
+        animation.isRemovedOnCompletion = true
+        animation.delegate = self
+        flash.add(animation, forKey: "flashAnimation")
         self.flashLayer = flash
     }
     
