@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A719EF741F72203D0009951A /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A719EF731F72203D0009951A /* ImageCell.swift */; };
+		A71E7FDF1F741FEA005F5E23 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71E7FDD1F741FEA005F5E23 /* Album.storyboard */; };
 		A75425B01F72B3650079ABED /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75425AF1F72B3650079ABED /* Camera.swift */; };
 		A7CA2B501F738582006D2922 /* AlbumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B4F1F738582006D2922 /* AlbumCollectionView.swift */; };
 		A7CA2B551F7389B2006D2922 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B541F7389B2006D2922 /* Coordinator.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		A719EF731F72203D0009951A /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		A71E7FDE1F741FEA005F5E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoreCamera/Resources/Base.lproj/Album.storyboard; sourceTree = "<group>"; };
 		A75425AF1F72B3650079ABED /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A7CA2B4F1F738582006D2922 /* AlbumCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionView.swift; sourceTree = "<group>"; };
 		A7CA2B541F7389B2006D2922 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A7FD074C1F71ED9000BF9FC5 /* Camera.storyboard */,
+				A71E7FDD1F741FEA005F5E23 /* Album.storyboard */,
 				A7FD074F1F71ED9000BF9FC5 /* Assets.xcassets */,
 				A7FD07511F71ED9000BF9FC5 /* LaunchScreen.storyboard */,
 			);
@@ -323,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71E7FDF1F741FEA005F5E23 /* Album.storyboard in Resources */,
 				A7FD07531F71ED9000BF9FC5 /* LaunchScreen.storyboard in Resources */,
 				A7FD07501F71ED9000BF9FC5 /* Assets.xcassets in Resources */,
 				A7FD074E1F71ED9000BF9FC5 /* Camera.storyboard in Resources */,
@@ -383,6 +387,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A71E7FDD1F741FEA005F5E23 /* Album.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A71E7FDE1F741FEA005F5E23 /* Base */,
+			);
+			name = Album.storyboard;
+			sourceTree = "<group>";
+		};
 		A7FD074C1F71ED9000BF9FC5 /* Camera.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -516,6 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SZP4Q326F;
 				INFOPLIST_FILE = CoreCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.froleeyo.CoreCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -531,6 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SZP4Q326F;
 				INFOPLIST_FILE = CoreCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.froleeyo.CoreCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";

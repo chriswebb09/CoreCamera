@@ -17,12 +17,12 @@ protocol CameraDelegate: class {
 class Camera: NSObject {
     
     weak var delegate: CameraDelegate?
-   
+    
     var filtering: Bool = false
     var currentFilter: CIFilter!
     
     private var dataOutput: AVCaptureVideoDataOutput?
-
+    
     private lazy var captureSession: AVCaptureSession = {
         let session = AVCaptureSession()
         session.sessionPreset = .high
@@ -31,7 +31,7 @@ class Camera: NSObject {
     
     private var previewLayer: AVCaptureVideoPreviewLayer?
     private let sampleBufferQueue = DispatchQueue.global(qos: .userInteractive)
-
+    
     private let context: CIContext = {
         let eaglContext = EAGLContext(api: .openGLES2)
         return CIContext(eaglContext: eaglContext!)
@@ -84,8 +84,12 @@ class Camera: NSObject {
     private func setupCaptureSession() {
         
         guard captureSession.inputs.isEmpty else { return }
-        
-        let types: [AVCaptureDevice.DeviceType] = [.builtInDualCamera, .builtInTelephotoCamera, .builtInWideAngleCamera]
+       var types = [AVCaptureDevice.DeviceType]()
+        if #available(iOS 10.2, *) {
+            types = [.builtInDualCamera, .builtInTelephotoCamera, .builtInWideAngleCamera]
+        } else {
+           types = [AVCaptureDevice.DeviceType]()
+        }
         let discovered = AVCaptureDevice.DiscoverySession(deviceTypes: types, mediaType: .video, position: .back)
         
         guard let camera = discovered.devices.first else { print("No camera found"); return }

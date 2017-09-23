@@ -10,11 +10,12 @@ import UIKit
 import AVFoundation
 import CoreImage
 import GLKit
+import Photos
 
 class CameraViewController: UIViewController, Controller {
+    
     var type: ControllerType = .camera
-    
-    
+    let cameraShutterSoundID: SystemSoundID = 1108
     // MARK: - Properties
     
     @IBOutlet weak private var filterButton: UIButton!
@@ -36,7 +37,7 @@ class CameraViewController: UIViewController, Controller {
     }()
     
     var camera: Camera!
-    
+    var picker = UIImagePickerController()
     var photoButtonEnabled: Bool = true
     
     private var previewLayer: AVCaptureVideoPreviewLayer?
@@ -44,7 +45,7 @@ class CameraViewController: UIViewController, Controller {
     private let comicFilter = CIFilter(name: "CIComicEffect")
     private let glassDistortionFilter = CIFilter(name: "CISepiaTone")
     private let twirlDistortionFilter = CIFilter(name: "CITwirlDistortion")
-    
+    var flashLayer: CALayer?
     private let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
     private let pulseAnimationSize: CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
     
@@ -69,10 +70,11 @@ class CameraViewController: UIViewController, Controller {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        collectionView.delegate = self
         camera = Camera()
         camera.delegate = self
         setupButton()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,6 +125,24 @@ class CameraViewController: UIViewController, Controller {
         }
     }
     
+    private func flashScreen() {
+        let flash = CALayer()
+        flash.frame = view.bounds
+        flash.backgroundColor = UIColor.white.cgColor
+        view.layer.addSublayer(flash)
+        flash.opacity = 0
+        
+        let anim = CABasicAnimation(keyPath: "opacity")
+        anim.fromValue = 0
+        anim.toValue = 1
+        anim.duration = 0.1
+        anim.autoreverses = true
+        anim.isRemovedOnCompletion = true
+        anim.delegate = self
+        flash.add(anim, forKey: "flashAnimation")
+        self.flashLayer = flash
+    }
+    
     private func setupButtonLayer() {
         buttonLayer.opacity = 1
         buttonLayer.cornerRadius = buttonLayer.frame.width / 2
@@ -138,6 +158,8 @@ class CameraViewController: UIViewController, Controller {
     }
     
     private func addAnimations() {
+        flashScreen()
+        AudioServicesPlaySystemSound(cameraShutterSoundID)
         buttonLayer.add(pulseAnimation, forKey: "animateOpacity")
         buttonLayer.add(pulseAnimation, forKey: "animateSize")
         animatePulse()
@@ -260,4 +282,16 @@ extension CameraViewController: UICollectionViewDataSource {
         cell.layer.setCellShadow(contentView: cell.contentView)
         return cell
     }
+}
+
+
+extension CameraViewController : CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        flashLayer?.removeFromSuperlayer()
+        flashLayer = nil
+    }
+}
+
+extension CameraViewController: UICollectionViewDelegate {
+    
 }
