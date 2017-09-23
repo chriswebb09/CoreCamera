@@ -12,17 +12,18 @@ import CoreImage
 import GLKit
 import Photos
 
-class CameraViewController: UIViewController, Controller {
+final class CameraViewController: UIViewController, Controller {
     
     var type: ControllerType = .camera
-    let cameraShutterSoundID: SystemSoundID = 1108
+    private let cameraShutterSoundID: SystemSoundID = 1108
+    
     // MARK: - Properties
     
     @IBOutlet weak private var filterButton: UIButton!
     @IBOutlet weak private var videoView: UIImageView!
     
-    var capturedImage: UIImage!
-    var capturedImages: [UIImage] = []
+    private var capturedImage: UIImage!
+    private var capturedImages: [UIImage] = []
     
     internal var bottomMenu = BottomMenu()
     
@@ -36,16 +37,16 @@ class CameraViewController: UIViewController, Controller {
         return layer
     }()
     
-    var camera: Camera!
-    var picker = UIImagePickerController()
-    var photoButtonEnabled: Bool = true
+    private var camera: Camera!
+    private var picker = UIImagePickerController()
+    private var photoButtonEnabled: Bool = true
     
     private var previewLayer: AVCaptureVideoPreviewLayer?
     private let invertColorFilter = CIFilter(name: "CIColorInvert")
     private let comicFilter = CIFilter(name: "CIComicEffect")
     private let glassDistortionFilter = CIFilter(name: "CISepiaTone")
     private let twirlDistortionFilter = CIFilter(name: "CITwirlDistortion")
-    var flashLayer: CALayer?
+    private var flashLayer: CALayer?
     private let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
     private let pulseAnimationSize: CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
     
@@ -293,5 +294,7 @@ extension CameraViewController : CAAnimationDelegate {
 }
 
 extension CameraViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }

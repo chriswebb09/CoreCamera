@@ -9,10 +9,10 @@
 
 import UIKit
 
-class CameraControllerCoordinator: ControllerCoordinator {
+final class CameraControllerCoordinator: ControllerCoordinator {
     
-    var window: UIWindow
-    var rootController: RootController!
+    internal var window: UIWindow
+    internal var rootController: RootController!
     
     weak var delegate: ControllerCoordinatorDelegate?
     

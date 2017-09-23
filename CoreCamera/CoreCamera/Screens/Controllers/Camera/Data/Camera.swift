@@ -14,7 +14,7 @@ protocol CameraDelegate: class {
     func update(image: UIImage)
 }
 
-class Camera: NSObject {
+final class Camera: NSObject {
     
     weak var delegate: CameraDelegate?
     
