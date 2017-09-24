@@ -1,19 +1,21 @@
 //
-//  CameraCoordinator.swift
+//  AlbumControllerCoordinator.swift
 //  CoreCamera
 //
-//  Created by Christopher Webb-Orenstein on 9/21/17.
+//  Created by Christopher Webb-Orenstein on 9/24/17.
 //  Copyright © 2017 Christopher Webb-Orenstein. All rights reserved.
 //
-
 import UIKit
 
-final class CameraControllerCoordinator: ControllerCoordinator {
+final class AlbumControllerCoordinator: ControllerCoordinator {
     
     internal var window: UIWindow
     internal var rootController: RootController!
     
+    var images: [UIImage] = []
+    
     weak var delegate: ControllerCoordinatorDelegate?
+    
     
     private var navigationController: UINavigationController {
         return UINavigationController(rootViewController: rootController)
@@ -21,11 +23,11 @@ final class CameraControllerCoordinator: ControllerCoordinator {
     
     var type: ControllerType {
         didSet {
-            if let storyboard = try? UIStoryboard(.camera) {
-                if let viewController: CameraViewController = try? storyboard.instantiateViewController() {
+            if let storyboard = try? UIStoryboard(.album) {
+                if let viewController: AlbumCollectionViewController = try? storyboard.instantiateViewController() {
                     viewController.delegate = self
+                    viewController.images = images
                     rootController = viewController
-                    viewController.setup()
                 }
             }
         }
@@ -33,7 +35,7 @@ final class CameraControllerCoordinator: ControllerCoordinator {
     
     init(window: UIWindow) {
         self.window = window
-        type = .camera
+        type = .album
     }
     
     func start() {
@@ -42,10 +44,9 @@ final class CameraControllerCoordinator: ControllerCoordinator {
     }
 }
 
-extension CameraControllerCoordinator: CameraViewControllerDelegate {
-    func navigateToAlbum(for images: [UIImage]) {
-        dump(images)
-        delegate?.updateImages(images: images)
-        delegate?.transitionCoordinator(type: .start)
+extension AlbumControllerCoordinator: AlbumCollectionViewControllerDelegate {
+    
+    func navigateToCamera(tapped: Bool) {
+        delegate?.transitionCoordinator(type: .app)
     }
 }

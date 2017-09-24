@@ -18,6 +18,7 @@ protocol Controller: class {
 
 protocol ControllerCoordinatorDelegate: CoordinatorDelegate {
     func transitionCoordinator(type: CoordinatorType)
+    func updateImages(images: [UIImage])
 }
 
 typealias RootController = UIViewController & Controller

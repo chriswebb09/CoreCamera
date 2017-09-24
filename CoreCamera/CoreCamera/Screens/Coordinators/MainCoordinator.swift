@@ -14,6 +14,7 @@ final class MainCoordinator: AppCoordinator {
     
     var childCoordinators: [ControllerCoordinator] = []
     var window: UIWindow
+    var images: [UIImage] = []
     
     init(window: UIWindow) {
         self.window = window
@@ -31,24 +32,33 @@ final class MainCoordinator: AppCoordinator {
 }
 
 extension MainCoordinator: ControllerCoordinatorDelegate {
+ 
+    func updateImages(images: [UIImage]) {
+        self.images = images
+    }
     
     // Switch between application flows
+    
     func transitionCoordinator(type: CoordinatorType) {
         
         // Remove previous application flow
+        
         childCoordinators.removeAll()
+        
         switch type {
+            
         case .app:
             let cameraCoordinator = CameraControllerCoordinator(window: window)
             addChildCoordinator(cameraCoordinator)
             cameraCoordinator.type = .camera
             cameraCoordinator.start()
+            
         case .start:
-            print("start")
-//            let startCoordinator = StartControllerCoordinator(window: window)
-//            addChildCoordinator(startCoordinator)
-//            startCoordinator.type = .start
-//            startCoordinator.start()
+            let albumCoordinator = AlbumControllerCoordinator(window: window)
+            addChildCoordinator(albumCoordinator)
+            albumCoordinator.images = images
+            albumCoordinator.type = .album
+            albumCoordinator.start()
         }
     }
 }

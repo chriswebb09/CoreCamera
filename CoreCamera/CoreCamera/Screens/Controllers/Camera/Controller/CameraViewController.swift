@@ -12,8 +12,13 @@ import CoreImage
 import GLKit
 import Photos
 
+protocol CameraViewControllerDelegate: class {
+    func navigateToAlbum(for images: [UIImage])
+}
+
 final class CameraViewController: UIViewController, Controller {
     
+    weak var delegate: CameraViewControllerDelegate?
     var type: ControllerType = .camera
     private let cameraShutterSoundID: SystemSoundID = 1108
     
@@ -28,7 +33,6 @@ final class CameraViewController: UIViewController, Controller {
     internal var bottomMenu = BottomMenu()
     
     @IBOutlet weak private var cameraView: UIView!
-    @IBOutlet weak private var collectionView: UICollectionView!
     
     private lazy var buttonLayer: CALayer = {
         let layer = CALayer.createButton()
@@ -70,8 +74,6 @@ final class CameraViewController: UIViewController, Controller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
-        collectionView.delegate = self
         camera = Camera()
         camera.delegate = self
         setupButton()
@@ -187,13 +189,17 @@ final class CameraViewController: UIViewController, Controller {
             guard let strongSelf = self else { return }
             print(strongSelf.capturedImage)
             strongSelf.capturedImages.append(strongSelf.capturedImage)
-            strongSelf.collectionView.reloadData()
         }
     }
     
     private func displayRect(rect: CGRect) {
         buttonLayer.frame = rect
         setupButtonLayer()
+    }
+    
+    @IBAction func albumButtonTapped(_ sender: Any) {
+        dump(capturedImages)
+        delegate?.navigateToAlbum(for: capturedImages)
     }
 }
 
@@ -259,42 +265,9 @@ extension CameraViewController: CameraDelegate {
     }
 }
 
-extension CameraViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if capturedImages.count < 2 {
-            let diff = 2 - capturedImages.count
-            return capturedImages.count + diff
-        } else {
-            return capturedImages.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! ImageCell
-        if self.capturedImages.count > indexPath.row {
-            DispatchQueue.main.async { [weak self] in
-                if let strongSelf = self {
-                    cell.photoView.image = strongSelf.capturedImages[indexPath.row]
-                }
-            }
-        }
-        cell.layer.cornerRadius = 6
-        cell.layer.setCellShadow(contentView: cell.contentView)
-        return cell
-    }
-}
-
-
 extension CameraViewController : CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         flashLayer?.removeFromSuperlayer()
         flashLayer = nil
-    }
-}
-
-extension CameraViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
 }
