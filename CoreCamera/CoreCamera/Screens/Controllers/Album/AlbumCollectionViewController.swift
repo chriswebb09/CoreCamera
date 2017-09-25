@@ -18,6 +18,8 @@ class AlbumCollectionViewController: UIViewController, Controller {
     
     var images: [UIImage] = []
     
+    var imagesToSave: [UIImage] = []
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     weak var delegate: AlbumCollectionViewControllerDelegate?
@@ -27,8 +29,10 @@ class AlbumCollectionViewController: UIViewController, Controller {
         collectionView.delegate = self
         collectionView.dataSource = self
         let barButton = UIBarButtonItem(title: "Camera", style: .plain, target: self, action: #selector(self.navigateBack))
+        let doneButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.done))
         DispatchQueue.main.async {
             self.navigationItem.leftBarButtonItem = barButton
+            self.navigationItem.rightBarButtonItem = doneButton
         }
     }
     
@@ -52,17 +56,31 @@ class AlbumCollectionViewController: UIViewController, Controller {
     @objc func navigateBack() {
         delegate?.navigateToCamera(tapped: true)
     }
+    
+    @objc func done() {
+        for image in imagesToSave {
+            if images.contains(image) {
+                let index = images.index(of: image)
+                images.remove(at: index!)
+                let context = CIContext()
+                if let ciImage = image.ciImage, let cgImage = context.createCGImage(ciImage, from: ciImage.extent) {
+                    let uiImage = UIImage(cgImage: cgImage)
+                    UIImageWriteToSavedPhotosAlbum(uiImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+                }
+            }
+        }
+        collectionView.reloadData()
+        imagesToSave.removeAll()
+    }
 }
 
 extension AlbumCollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image = images[indexPath.row]
-        let context = CIContext()
-        if let ciImage = image.ciImage, let cgImage = context.createCGImage(ciImage, from: ciImage.extent) {
-            let uiImage = UIImage(cgImage: cgImage)
-            UIImageWriteToSavedPhotosAlbum(uiImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-        }
+        let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
+        cell.configureCell(with: .selected)
+        imagesToSave.append(image)
     }
 }
 
@@ -79,6 +97,7 @@ extension AlbumCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! ImageCell
         cell.photoView.image = images[indexPath.row]
+        cell.layoutSubviews()
         return cell
     }
 }
