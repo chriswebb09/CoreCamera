@@ -32,7 +32,7 @@ extension BottomMenuViewable {
         let width = UIScreen.main.bounds.width
         let size = CGSize(width: width, height: height)
         let originX = UIScreen.main.bounds.width * 0.001
-        let originY = UIScreen.main.bounds.height * 0.1
+        let originY = UIScreen.main.bounds.height * 0.14
         let origin = CGPoint(x: originX, y: originY)
         
         

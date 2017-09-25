@@ -44,7 +44,6 @@ final class CameraControllerCoordinator: ControllerCoordinator {
 
 extension CameraControllerCoordinator: CameraViewControllerDelegate {
     func navigateToAlbum(for images: [UIImage]) {
-        dump(images)
         delegate?.updateImages(images: images)
         delegate?.transitionCoordinator(type: .start)
     }

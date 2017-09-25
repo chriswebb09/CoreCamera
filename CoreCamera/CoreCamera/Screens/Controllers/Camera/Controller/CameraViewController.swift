@@ -70,6 +70,10 @@ final class CameraViewController: UIViewController, Controller {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -149,7 +153,7 @@ final class CameraViewController: UIViewController, Controller {
     private func setupButtonLayer() {
         buttonLayer.opacity = 1
         buttonLayer.cornerRadius = buttonLayer.frame.width / 2
-        buttonLayer.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 1.8)
+        buttonLayer.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 1.2)
         buttonLayer.borderWidth = 4.0
         buttonLayer.borderColor = UIColor.white.cgColor
         buttonLayer.shadowOpacity = 0.2

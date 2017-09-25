@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,20 +25,11 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erz-Jo-bTS">
                                         <rect key="frame" x="0.0" y="-20" width="375" height="667"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d83-xs-Yh4">
-                                        <rect key="frame" x="297" y="8" width="70" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="lightning-small"/>
-                                        <connections>
-                                            <action selector="changeFilterTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eKZ-5d-8Iv"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqO-hC-rKX">
-                                        <rect key="frame" x="0.0" y="482" width="375" height="165"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqO-hC-rKX">
+                                        <rect key="frame" x="0.0" y="489" width="375" height="647"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAG-e7-qR6">
-                                                <rect key="frame" x="8" y="8" width="46" height="38"/>
+                                                <rect key="frame" x="8" y="8" width="32" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="white-album"/>
                                                 <connections>
@@ -47,26 +39,31 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d83-xs-Yh4">
+                                        <rect key="frame" x="274" y="8" width="70" height="51"/>
+                                        <state key="normal" image="lightning-small"/>
+                                        <connections>
+                                            <action selector="changeFilterTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eKZ-5d-8Iv"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="erz-Jo-bTS" firstAttribute="centerX" secondItem="uGV-lH-pTr" secondAttribute="centerX" id="0HG-io-FAM"/>
                                     <constraint firstItem="erz-Jo-bTS" firstAttribute="top" secondItem="uGV-lH-pTr" secondAttribute="top" constant="-20" id="GwI-VP-gGq"/>
+                                    <constraint firstItem="xqO-hC-rKX" firstAttribute="top" secondItem="erz-Jo-bTS" secondAttribute="bottom" constant="-138" id="Jde-rd-qdU"/>
+                                    <constraint firstItem="xqO-hC-rKX" firstAttribute="centerX" secondItem="erz-Jo-bTS" secondAttribute="centerX" id="K7I-Bl-Pbb"/>
                                     <constraint firstItem="erz-Jo-bTS" firstAttribute="width" secondItem="uGV-lH-pTr" secondAttribute="width" id="KaU-M7-bdC"/>
+                                    <constraint firstItem="d83-xs-Yh4" firstAttribute="width" secondItem="erz-Jo-bTS" secondAttribute="width" multiplier="0.189" id="RZD-Wl-Gga"/>
+                                    <constraint firstItem="d83-xs-Yh4" firstAttribute="leading" secondItem="erz-Jo-bTS" secondAttribute="trailing" constant="-101" id="Uga-QP-3Sb"/>
+                                    <constraint firstItem="xqO-hC-rKX" firstAttribute="height" secondItem="erz-Jo-bTS" secondAttribute="height" id="hkW-3C-vHz"/>
                                     <constraint firstItem="erz-Jo-bTS" firstAttribute="height" secondItem="uGV-lH-pTr" secondAttribute="height" id="iBn-Xd-Due"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2o-td-B9C">
-                                <rect key="frame" x="-1" y="498" width="377" height="11"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="11" id="RDI-lc-QLp"/>
-                                    <constraint firstAttribute="width" constant="377" id="ync-lB-tpp"/>
+                                    <constraint firstItem="xqO-hC-rKX" firstAttribute="width" secondItem="erz-Jo-bTS" secondAttribute="width" id="jZH-Ya-dgZ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="erz-Jo-bTS" secondAttribute="bottom" constant="-627" id="2uN-UN-mj8"/>
-                            <constraint firstItem="u2o-td-B9C" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PMF-Lb-FEs"/>
+                            <constraint firstItem="d83-xs-Yh4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="DNW-dg-qeL"/>
                             <constraint firstItem="uGV-lH-pTr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bSq-kb-aeW"/>
                             <constraint firstItem="uGV-lH-pTr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h3b-VX-q37"/>
                             <constraint firstItem="erz-Jo-bTS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-375" id="xJq-rU-1kF"/>

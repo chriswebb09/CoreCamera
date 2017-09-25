@@ -34,7 +34,7 @@ final class MainCoordinator: AppCoordinator {
 extension MainCoordinator: ControllerCoordinatorDelegate {
  
     func updateImages(images: [UIImage]) {
-        self.images = images
+        self.images.append(contentsOf: images)
     }
     
     // Switch between application flows
@@ -56,7 +56,7 @@ extension MainCoordinator: ControllerCoordinatorDelegate {
         case .start:
             let albumCoordinator = AlbumControllerCoordinator(window: window)
             addChildCoordinator(albumCoordinator)
-            albumCoordinator.images = images
+            albumCoordinator.images.append(contentsOf: images)
             albumCoordinator.type = .album
             albumCoordinator.start()
         }

@@ -26,7 +26,7 @@ final class AlbumControllerCoordinator: ControllerCoordinator {
             if let storyboard = try? UIStoryboard(.album) {
                 if let viewController: AlbumCollectionViewController = try? storyboard.instantiateViewController() {
                     viewController.delegate = self
-                    viewController.images = images
+                    viewController.images.append(contentsOf: images)
                     rootController = viewController
                 }
             }
