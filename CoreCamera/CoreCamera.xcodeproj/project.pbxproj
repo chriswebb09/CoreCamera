@@ -12,6 +12,7 @@
 		A71E7FDF1F741FEA005F5E23 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71E7FDD1F741FEA005F5E23 /* Album.storyboard */; };
 		A71F83531F7641AC00DEF3AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F83521F7641AC00DEF3AF /* Constants.swift */; };
 		A71F83551F7641E700DEF3AF /* BottomMenuViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F83541F7641E700DEF3AF /* BottomMenuViewable.swift */; };
+		A738B1811F786F600070E563 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A738B1801F786F600070E563 /* LocalStorageManager.swift */; };
 		A75425B01F72B3650079ABED /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75425AF1F72B3650079ABED /* Camera.swift */; };
 		A7CA2B501F738582006D2922 /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B4F1F738582006D2922 /* AlbumCollectionViewController.swift */; };
 		A7CA2B551F7389B2006D2922 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CA2B541F7389B2006D2922 /* Coordinator.swift */; };
@@ -51,6 +52,7 @@
 		A71E7FDE1F741FEA005F5E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoreCamera/Resources/Base.lproj/Album.storyboard; sourceTree = "<group>"; };
 		A71F83521F7641AC00DEF3AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A71F83541F7641E700DEF3AF /* BottomMenuViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuViewable.swift; sourceTree = "<group>"; };
+		A738B1801F786F600070E563 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		A75425AF1F72B3650079ABED /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A7CA2B4F1F738582006D2922 /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewController.swift; sourceTree = "<group>"; };
 		A7CA2B541F7389B2006D2922 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				A723484C1F73639800101EED /* Extension */,
 				A723484A1F73637800101EED /* Menu */,
 				A7CA2B5A1F738A13006D2922 /* Protocols */,
+				A738B1801F786F600070E563 /* LocalStorageManager.swift */,
 			);
 			path = CoreCamera;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				A719EF741F72203D0009951A /* ImageCell.swift in Sources */,
 				A7CA74391F7254CF00AB7827 /* MenuOptionView.swift in Sources */,
 				A7CA743C1F7254CF00AB7827 /* BottomMenu.swift in Sources */,
+				A738B1811F786F600070E563 /* LocalStorageManager.swift in Sources */,
 				A7CA2B601F738F79006D2922 /* ErrorPresenting.swift in Sources */,
 				A7CA74341F72445000AB7827 /* CALayer+Extension.swift in Sources */,
 				A7CA743A1F7254CF00AB7827 /* MenuDelegate.swift in Sources */,
@@ -545,7 +549,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.froleeyo.CoreCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -561,7 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.froleeyo.CoreCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
